@@ -1,0 +1,64 @@
+---
+title: "Exercise 1"
+format:
+  html:
+    theme: default
+---
+
+
+In this exercise 100 values from a log-normal distribution are sampled and visualized using a histogram with two kinds of scales (linear and log) as well as a violin plot. 
+
+## Importing packages
+
+First, the necessary packages are imported. 
+```{r}
+library(ggplot2)
+library(ggeasy)
+```
+
+## Generating the data 
+
+Second, the sample is generated. 
+```{r}
+set.seed(15)
+data <- rlnorm(100, meanlog = 5, sdlog  = 0.5)
+
+```
+The mean value of the sample is `r mean(data)` and the standard deviation `r sd(data)`.
+
+## Visualizing the sample
+
+### Histogram
+
+Next, the histogram is plotted, first using a linear and then a log scale. 
+```{r}
+# Linear scale 
+df <- data.frame(data)
+
+ggplot(df, aes(x=data)) + geom_histogram(binwidth = 10, fill = '#C77CFF', color='black') + labs(title = 'Histogram of sample from log-normal distribution',
+                                                                                                x = 'value',
+                                                                                                x = 'count') +  ggeasy::easy_center_title()
+
+```
+
+```{r}
+# Log scale 
+log_data <- log(data)
+log_df <- data.frame(log_data)
+ggplot(log_df, aes(x=log_data)) + geom_histogram(binwidth = 0.01, fill = '#C77CFF', color='black') + labs(title = 'Histogram of sample from log-normal distribution with a log scale',
+                                                                                                x = 'log(value)',
+                                                                                                x = 'count') +  ggeasy::easy_center_title()
+
+```
+
+### Violin plot
+
+Lastly, the data is visualized using a violin plot. 
+
+```{r}
+
+ggplot(df, aes(x = factor(1), y = data))+ geom_violin(fill = '#C77CFF', color='black') + labs(title = 'Violin plot of sample from log-normal distribution',
+                                                                                                x = '', 
+                                                                                                y = 'value') +  ggeasy::easy_center_title()
+
+```
