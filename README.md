@@ -6,4 +6,4 @@ soon, so visit the website from the link and the museum as long as it is still o
 
 ![Pergamonmuseum](https://www.berlin.de/binaries/asset/image_assets/5456908/ratio_4_3/1590145564/800x600/)
 
-> "The Pergamonmuseum is really one of the greatest museums in Berlin"
+> "The Pergamonmuseum is really one of the greatest museums in Berlin" (Me)
